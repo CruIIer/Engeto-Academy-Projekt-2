@@ -29,5 +29,22 @@ print(pin)
 
 """ can't start with zero -_- """
 
+###### GAME ######
+user = input("Enter a number: ")
+attempt = list(user)
 
+print(separator)
+print(attempt)
+bulls = []
+cows = []
+for num in attempt:
+    if num in pin:
+        bulls += 1
+
+print(f"{bulls} bulls") 
+        
+# i gotta compare user's pin with programm's pin 
+# 
+if pin[1] is attempt[1]:
+    cows += 1
 
