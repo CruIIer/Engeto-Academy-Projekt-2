@@ -20,14 +20,13 @@ print(separator)
     
 ###### CREATING 4 DIGITS PIN CODE ######
 pin = []
+pin.append(randint(1,9))
 while len(pin) != 4:
     num = randint(0, 9)
     if num not in pin:
         pin.append(num)
 
 print(pin)
-
-""" can't start with zero -_- """
 
 ###### GAME ######
 user = input("Enter a number: ")
@@ -47,4 +46,5 @@ print(f"{bulls} bulls")
 # 
 if pin[1] is attempt[1]:
     cows += 1
+
 
