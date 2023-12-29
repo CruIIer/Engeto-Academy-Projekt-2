@@ -19,6 +19,7 @@ print(separator)
     
     
 ###### CREATING 4 DIGITS PIN CODE ######
+
 pin = []
 pin.append(randint(1,9))
 while len(pin) != 4:
