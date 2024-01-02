@@ -18,43 +18,57 @@ Let's play a bulls and cows game.""")
 print(separator)
     
     
-###### CREATING 4 DIGITS PIN CODE ######
-pin = []
-pin.append(randint(1,9))
-while len(pin) != 4:
+###### CREATING 4 DIGITS result_pin CODE ######
+result_pin = []
+result_pin.append(randint(1,9))
+while len(result_pin) != 4:
     num = randint(0, 9)
-    if num not in pin:
-        pin.append(num)
+    if num not in result_pin:
+        result_pin.append(num)
 
-print(pin)
+print(result_pin)
 
-###### USER'S PIN ######
+###### USER'S result_pin ######
 while True:
-    user_attempt = input("Enter your number: ")
-    if len(user_attempt) != 4:
-        print("Your pin must contain 4 digits.")
-    if user_attempt[0] == "0":
-        print("Your pin can't start with 0.")
-    if not user_attempt.isnumeric():
-        print("Your pin must contian numbers only.")
-    if len(set(user_attempt)) != len(user_attempt):
-        print("Your pin can't contain duplicates.")
+    user_pin = input("Enter your number: ")
+    if len(user_pin) != 4:
+        print("Your result_pin must contain 4 digits.")
+    if user_pin[0] == "0":
+        print("Your result_pin can't start with 0.")
+    if not user_pin.isnumeric():
+        print("Your result_pin must contian numbers only.")
+    if len(set(user_pin)) != len(user_pin):
+        print("Your result_pin can't contain duplicates.")
+    else:
+        break
 
 print(separator)
 
 ###### RESULTS OF A ROUND ######
-print(user_attempt)
-bulls = []
-cows = []
-for num in user_attempt:
-    if num in pin:
-        bulls += 1
+user_pin = [int(num) for num in user_pin]
+bulls = 0
+cows = 0
 
-print(f"{bulls} bulls") 
-        
-# i gotta compare user's pin with programm's pin 
+for num_pc, num_user in zip(result_pin, user_pin):
+    if num_pc in user_pin:
+        if num_pc == num_user:
+            bulls += 1
+        else:
+            cows += 1
+
+
+print(result_pin)
+print(user_pin)
+
+print(f"{bulls} bulls, {cows} cows") 
+
+# i gotta dostat user_pin do seznamu čísel, asi skrz comprehensions
 # 
-if pin[1] is user_attempt[1]:
-    cows += 1
+
+
+
+
+
+
 
 
