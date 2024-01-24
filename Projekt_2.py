@@ -61,11 +61,14 @@ def round_results(result_pin):
 
 ###### SHOWING RESULTS ######
 guess_count = 0
-def show_results(result_pin, user_pin, bulls, cows, guess_count):
-    print(f"{bulls} {'bull' if bulls == 1 else 'bulls'}, {cows} {'cow' if cows == 1 else 'cows'} \n")
-    if bulls == 4:
-        print(f"Correct, you've guessed the right number in {guess_count} guesses")
+rating_ranges = [(1, 2, "awesome!"), (3, 5, "pretty good!"), (6, 8, "average!"), (9, float('inf'), "quite bad, try again!")]
 
+def show_results(result_pin, user_pin, bulls, cows, guess_count):
+    print(f"{bulls} {'bull' if bulls == 1 else 'bulls'}, {cows} {'cow' if cows == 1 else 'cows'} \n{separator}")
+    if bulls == 4:
+        rating_scale = next((rating for lower, upper, rating in rating_ranges if lower <= guess_count <= upper))
+        print(f"Correct, you've guessed the right number in {guess_count} guesses. That's {rating_scale}")
+        
 while True:
     result_pin, user_pin, bulls, cows = round_results(result_pin)
     show_results(result_pin, user_pin, bulls, cows, guess_count)
