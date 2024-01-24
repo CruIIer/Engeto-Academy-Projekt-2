@@ -43,7 +43,6 @@ def users_attempt_pin():
             return [int(num) for num in user_pin]
     
 
-
 ###### RESULTS OF A ROUND ######
 result_pin = generate_pin()
 def round_results(result_pin):
